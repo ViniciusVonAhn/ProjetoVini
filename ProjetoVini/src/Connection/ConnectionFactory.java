@@ -10,9 +10,9 @@ public class ConnectionFactory {
     public Connection getConnection(){
         try {
             
-            return DriverManager.getConnection("jdbc:mysql://localhost:1527/projeto","root", "root");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            return DriverManager.getConnection("jdbc:mysql://localhost:1527/projeto","root", "");
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
     }
 }
