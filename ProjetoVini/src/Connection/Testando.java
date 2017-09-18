@@ -10,7 +10,7 @@ public class Testando {
         Connection co = new ConnectionFactory().getConnection();
         System.out.println("Conecção aberta");
         
-        
+       
     }
  
 }
