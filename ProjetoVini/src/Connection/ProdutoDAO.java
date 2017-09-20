@@ -18,7 +18,7 @@ import Connection.Produto;
  */
 public class ProdutoDAO {
     public ResultSet result;
-    
+
     public void create(Produto p){
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
