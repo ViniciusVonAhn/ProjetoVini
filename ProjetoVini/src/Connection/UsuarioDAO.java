@@ -25,7 +25,8 @@ public class UsuarioDAO {
             stmt.setString(2, senha);
            rs = stmt.executeQuery();
             if (rs.next()) {                
-                check = true; 
+                check = true;
+              
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
