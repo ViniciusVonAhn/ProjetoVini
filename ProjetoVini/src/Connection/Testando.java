@@ -19,7 +19,7 @@ public class Testando {
         //dao.create(p);
 
         for (Produto a : dao.read()) {
-            System.out.println(a.getId() + " " + a.getDescricao() + " " + a.getQtd() + " " + a.getPreco());
+            System.out.println(a.getId() + " " + a.getDescricao() + " " + a.getQtd() + " " + a.getPreco()+ " " +a.getUnidadeV());
 
         }
 

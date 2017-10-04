@@ -10,6 +10,17 @@ public class Produto {
     private String descricao;
     private int qtd;
     private double preco;
+    private String unidadeV;
+
+    public String getUnidadeV() {
+        return unidadeV;
+    }
+
+    public void setUnidadeV(String unidadeV) {
+        this.unidadeV = unidadeV;
+    }
+    
+    
 
     public int getId() {
         return id;

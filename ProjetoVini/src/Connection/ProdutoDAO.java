@@ -24,10 +24,12 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO produto (descricao, qtd, preco)VALUES(?,?,?)");
+            stmt = (PreparedStatement) con.prepareStatement("INSERT INTO produto (descricao, qtd, preco, unidadeV)VALUES(?,?,?,?)");
             stmt.setString(1, p.getDescricao());
             stmt.setInt(2, p.getQtd());
             stmt.setDouble(3, p.getPreco());
+            
+            stmt.setString(4, p.getUnidadeV());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salvo com sucesso");
          
@@ -53,6 +55,7 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.setId(rs.getInt("id"));
                 produto.setDescricao(rs.getString("descricao"));
+                produto.setUnidadeV(rs.getString("unidadeV"));
                 produto.setQtd(rs.getInt("qtd"));
                 produto.setPreco(rs.getDouble("preco"));
                 produtos.add(produto);
@@ -63,6 +66,28 @@ public class ProdutoDAO {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
         return produtos;
+        
+    }
+    
+    public void update(Produto p){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = (PreparedStatement) con.prepareStatement("UPDATE produto SET descricao = ?, qtd = ?, preco = ?, unidadeV = ? WHERE id = ?");
+            stmt.setString(1, p.getDescricao());
+            stmt.setInt(2, p.getQtd());
+            stmt.setDouble(3, p.getPreco());
+            stmt.setString(4, p.getUnidadeV());
+            stmt.setInt(5, p.getId());
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso");
+         
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
         
     }
     
